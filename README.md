@@ -1,6 +1,6 @@
 # Assignment 1: Complexity & Sorts
 
-This is a **graded** assignment. You need to follow the link on the [private course page](https://github.com/dsacl3-2019/dsacl3) to word on your repository. The deadline for this assignment is **Monday, November 21st, 8:00 CET**. 
+This is a **graded** assignment. You need to follow the link on the [private course page](https://github.com/dsacl3-2019/dsacl3) to word on your repository. The deadline for this assignment is **Monday, November 25th, 8:00 CET**. 
 
 You are strongly recommended to use git properly/productively: commit every 'unit' of work (e.g., individual exercises) and bug fixes separately. You do not need to worry about the mistakes in the earlier commits. Your assignment will be evaluated based only on the final commit before the deadline. Also, don't forget to add your information and the honor code to each file that you modify.
 
