@@ -9,7 +9,7 @@ class TestRandQuickSort(unittest.TestCase):
 
     def test_sorted_sequence(self):
         sorted_seq = [i for i in range(100000)]
-        sorted_seq_copy = sorted_seq[:]
+        sorted_seq_copy = list.copy(sorted_seq)
 
         randomized_inplace_quick_sort(sorted_seq, 0, len(sorted_seq)-1)
 
@@ -17,7 +17,7 @@ class TestRandQuickSort(unittest.TestCase):
         
     def test_random_sequence(self):
         sorted_seq = [i for i in range(100000)]
-        random_seq = sorted_seq[:]
+        random_seq = list.copy(sorted_seq)
         random.shuffle(random_seq)
 
         randomized_inplace_quick_sort(random_seq, 0, len(random_seq)-1)

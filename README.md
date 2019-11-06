@@ -55,7 +55,7 @@ Modify the in-place version of the quick-sort algorithm provided in the course s
 The directory `rand_quicksort` contains the starter code for this problem. The code you write should make all the tests in `test_rand_quicksort` pass.
 
 ## 5. String sorting
-Given a list of *n* strings of different lengths, implement an algorithm to sort them in *O(d(n+N))* time, where *d* is the maximum number of characters over all the n strings and *N* is the length of the letter alphabet over the *n* strings.
+Given a list of *n* strings of different lengths, implement an algorithm to sort them in lexicographic order in *O(d(n+N))* time, where *d* is the maximum number of characters over all the n strings and *N* is the length of the letter alphabet over the *n* strings.
 
 The directory `sort_dict` contains the starter code for this exercise. 
 
