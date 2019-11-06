@@ -22,7 +22,7 @@ class TestSortDict(unittest.TestCase):
 from sort_dict import string_sort
 with open("sort_dict/data/words_alpha.txt", encoding='utf8', mode='r') as in_f:
     word_list = [line.strip() for line in in_f]
-string_sort(word_list)"""
+"""
             time = timeit.timeit("string_sort(word_list)", setup, number=loops)
             print("\nTiming ", loops, " loops of string_sort: ", time)
 
