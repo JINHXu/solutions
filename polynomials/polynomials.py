@@ -25,6 +25,7 @@ def polynomial_one(x, n, coefficient_list):
     p_x = 0
     
     # FIXME your code goes here
+    #basic way of implementing
 
     return p_x
 
@@ -48,6 +49,7 @@ def polynomial_two(x, n, coefficient_list):
     p_x = 0
     
     # FIXME your code goes here
+    #outer for-loop execute n times
 
     return p_x
 
@@ -70,6 +72,8 @@ def polynomial_three(x, n, coefficient_list):
     """
     
     p_x = 0
+
+    #looks like a recursion
     
     # FIXME your code goes here
 
