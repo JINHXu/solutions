@@ -7,7 +7,7 @@ from polynomials import polynomial_one, polynomial_two, polynomial_three
 class TestPolynomials(unittest.TestCase):
 
     def test_polynomial_a(self):
-        # computing x^2 + 2 + 5
+        # computing x^2 + 2*x + 5
         # x = 2, result should be 4 + 4 + 5 = 13
 
         result_one = polynomial_one(2, 2, [1, 2, 5])
@@ -37,6 +37,8 @@ class TestPolynomials(unittest.TestCase):
         result_one = polynomial_one(2, 9, [11, 0, 9, 0, 7, 0, 5, 0, 3, 0])
         result_two = polynomial_two(2, 9, [11, 0, 9, 0, 7, 0, 5, 0, 3, 0])
         result_three = polynomial_three(2, 9, [11, 0, 9, 0, 7, 0, 5, 0, 3, 0])
+       
+        
 
         self.assertEqual(result_one, 7054)
         self.assertEqual(result_two, 7054)

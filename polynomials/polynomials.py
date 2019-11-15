@@ -2,7 +2,13 @@
    
     Problem 2: Polynomials.
 
-    <Please insert your data and the honor code here.>
+   Course:      Data Structures and Algorithms for CL III - WS1920
+   Assignment:  lab 1, exercise 2
+   Author:      Jinghua Xu
+   Description: Implement an efficient algorithm for finding the ten largest elements in a sequence of size n. 
+   Using the big-Oh notation, characterize the number of arithmetic operations of the algorithm you have written, and write analysis in the function docstring.
+ 
+ Honor Code:  I pledge that this program represents my own work.
 """
 
 def polynomial_one(x, n, coefficient_list):
@@ -24,8 +30,17 @@ def polynomial_one(x, n, coefficient_list):
     """
     p_x = 0
     
-    # FIXME your code goes here
-    #basic way of implementing
+    #outer for-loop execute n times, iterating over the coefficients in coefficient_list
+    for coe in coefficient_list:
+
+        x_i = 1
+    #innner-loop calculating x to the power of i, will execute n+(n-1)+...+1 = n*(n+1)/2 times, thus the complexity of this will be O(n^2)
+        for i in range(n):
+
+            x_i = x_i * x
+        
+        p_x = p_x + coe * x_i
+        n = n-1
 
     return p_x
 
@@ -48,8 +63,15 @@ def polynomial_two(x, n, coefficient_list):
     """
     p_x = 0
     
-    # FIXME your code goes here
-    #outer for-loop execute n times
+    #outer for-loop execute n times, iterating over the coefficients in coefficient_list
+    for coe in coefficient_list:
+
+        x_i = 1
+        # can I add another function pwo here?
+        #allowed? complexity of pow() is O(logN)
+        x_i = pow(x, n)
+        p_x = p_x + coe * x_i
+        n = n-1
 
     return p_x
 
@@ -70,12 +92,15 @@ def polynomial_three(x, n, coefficient_list):
     p_x : number
         The result of the polynomial evaluated for the given x, n and coefficients.
     """
-    
-    p_x = 0
+    #"base case": inner-most item (an-1 + x*an)
+    p_x = coefficient_list[1] + coefficient_list[0]*x
+    #slicing the first 2 items off without changing the original list of coeffecients
+    coefficient_list = coefficient_list[2:]
 
-    #looks like a recursion
-    
-    # FIXME your code goes here
+    #iterate over the sliced list
+    for coe in coefficient_list:
+        
+        p_x = x*p_x + coe
 
     return p_x
 
