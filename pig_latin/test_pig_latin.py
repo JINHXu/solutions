@@ -77,3 +77,40 @@ class TestPigLatinEncoder(unittest.TestCase):
         result = encode_word(word)
 
         self.assertEqual(result, correct_encoding)
+
+    def test_encode_file_1(self):
+        md_ch1 = "pig_latin/data/2701-0-ch1.txt"
+        pl_md_ch1 = "pig_latin/data/2701-0-ch1-pl.txt"
+        result1_md_ch1 = "pig_latin/data/2701-0-ch1-pl-result-1.txt"
+
+        encode_file_1(md_ch1, result1_md_ch1)
+
+        self.assertEqual(filecmp.cmp(result1_md_ch1, pl_md_ch1), True)
+
+    def test_encode_file_2(self):
+        md_ch1 = "pig_latin/data/2701-0-ch1.txt"
+        pl_md_ch1 = "pig_latin/data/2701-0-ch1-pl.txt"
+        result2_md_ch1 = "pig_latin/data/2701-0-ch1-pl-result-2.txt"
+
+        encode_file_2(md_ch1, result2_md_ch1)
+
+        self.assertEqual(filecmp.cmp(result2_md_ch1, pl_md_ch1), True)
+
+    def test_speed(self):
+        loops = 20
+
+        setup1 = """\
+from pig_latin import encode_file_1
+md_ch1 = "pig_latin/data/2701-0.txt"
+result1_md_ch1 = "pig_latin/data/2701-0-result-1-speed.txt"
+"""
+        time1 = timeit.timeit("encode_file_1(md_ch1, result1_md_ch1)", setup1, number=loops)
+        print("\nTiming ", loops, " loops of encode_file_1: ", time1)
+
+        setup2 = """\
+from pig_latin import encode_file_2
+md_ch1 = "pig_latin/data/2701-0.txt"
+result2_md_ch1 = "pig_latin/data/2701-0-result-2-speed.txt"
+"""
+        time2 = timeit.timeit("encode_file_2(md_ch1, result2_md_ch1)", setup2, number=loops)
+        print("\nTiming ", loops, " loops of encode_file_2: ", time2)
