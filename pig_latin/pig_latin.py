@@ -25,7 +25,7 @@ def encode_word(word):
         The word encoded in Pig Latin.
     """
 
-    #check argument empty
+    #empty string argument
     if word == '':
         return word
 
@@ -48,19 +48,14 @@ def encode_word(word):
         puncts_at_end = puncts_at_end[::-1]
 
 
-    #detect a consonants cluster at the beginning of the input word
-    for idx in range(len(encoded_word)):
-        if encoded_word[idx] not in set_vowels:
-
-            #move it to the end of the word
-            encoded_word = encoded_word[1:]+encoded_word[0]
-
-            if encoded_word[idx+1] in set_vowels:
-                break
-
-        else:
+    #detect and move consonants cluster at the beginning of the input word
+    for _ in range(len(encoded_word)):
+        if encoded_word[0] in set_vowels:
             break
-    
+        else:
+            #move the consonant to the ned of the word
+            encoded_word = encoded_word[1:] + encoded_word[0]
+    #step by step: add "ay" -> capitalization -> add puncts
     #add "ay" to the end
     if word.isupper():
         encoded_word += 'AY'
@@ -76,6 +71,7 @@ def encode_word(word):
     encoded_word = encoded_word + puncts_at_end
 
     return encoded_word
+
 
 def encode_file_1(input_file, output_file):
     """Method for converting a file containing English text to Pig Latin.
