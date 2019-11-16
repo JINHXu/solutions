@@ -25,7 +25,7 @@ def encode_word(word):
         The word encoded in Pig Latin.
     """
 
-    #empty string argument
+    #argument check: empty string argument
     if word == '':
         return word
 
@@ -35,7 +35,7 @@ def encode_word(word):
     puncts = string.punctuation
     #set of vowels
     set_vowels = {'a','e','i','o','u','A','E','I','O','U'}
-    #taking care of the puctuation(s) at the end of the word(iteration starts from the end of the word)
+    #getting rid of the puctuation(s) at the end of the word(iteration starts from the end of the word): detect and store ending puncts
     for char in word[::-1]:
         if char not in puncts:
             break
@@ -55,21 +55,18 @@ def encode_word(word):
         else:
             #move the consonant to the ned of the word
             encoded_word = encoded_word[1:] + encoded_word[0]
-    #step by step: add "ay" -> capitalization -> add puncts
-    #add "ay" to the end
+
+    #brief and logical version: case1: all upper case situation, case2: not all uppercase(capitalization? handled in this case)
     if word.isupper():
         encoded_word += 'AY'
-        return encoded_word + puncts_at_end
     else:
-        encoded_word +=  'ay'
-
-    #taking care of capitalization
-    if word[0].isupper():
-        encoded_word = encoded_word.capitalize()
-
-    #adding the puncts to the end 
+        encoded_word += 'ay'
+        #taking care of capitalization
+        if word[0].isupper():
+            encoded_word = encoded_word.capitalize()
+    
+    #add ending puncts
     encoded_word = encoded_word + puncts_at_end
-
     return encoded_word
 
 
