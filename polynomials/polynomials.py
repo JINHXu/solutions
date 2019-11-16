@@ -5,8 +5,7 @@
    Course:      Data Structures and Algorithms for CL III - WS1920
    Assignment:  lab 1, exercise 2
    Author:      Jinghua Xu
-   Description: Implement an efficient algorithm for finding the ten largest elements in a sequence of size n. 
-   Using the big-Oh notation, characterize the number of arithmetic operations of the algorithm you have written, and write analysis in the function docstring.
+   Description: Let p(x) be a polynomial of degree n, that is p(x) = a0 + a1x + a2x2 + ... + an-1xn-1 + anxn, calculate in the following 3 ways with different runtime complexity.
  
  Honor Code:  I pledge that this program represents my own work.
 """
@@ -91,6 +90,10 @@ def polynomial_three(x, n, coefficient_list):
     -------
     p_x : number
         The result of the polynomial evaluated for the given x, n and coefficients.
+        
+
+        Complexity analysis:(by following the style on slides)
+
     """
     #"base case": inner-most item (an-1 + x*an)
     p_x = coefficient_list[1] + coefficient_list[0]*x
@@ -99,7 +102,7 @@ def polynomial_three(x, n, coefficient_list):
 
     #iterate over the sliced list
     for coe in coefficient_list:
-        
+
         p_x = x*p_x + coe
 
     return p_x
