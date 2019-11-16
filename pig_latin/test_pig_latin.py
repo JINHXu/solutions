@@ -114,3 +114,4 @@ result2_md_ch1 = "pig_latin/data/2701-0-result-2-speed.txt"
 """
         time2 = timeit.timeit("encode_file_2(md_ch1, result2_md_ch1)", setup2, number=loops)
         print("\nTiming ", loops, " loops of encode_file_2: ", time2)
+

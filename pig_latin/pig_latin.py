@@ -84,7 +84,21 @@ def encode_file_1(input_file, output_file):
     Returns:
         None
     """
-    # FIXME your code goes here
+    with open(output_file, 'w', encoding = 'utf8') as writer:
+        with open(input_file, 'r', encoding = 'utf8') as reader:
+            for line in reader.readlines():
+                #handling the blank lines
+                if line.isspace():
+                    writer.write('\n')
+                    writer.write(line)
+                    
+                else:
+                    words = line.split()
+                    for word in words:
+                        writer.write(encode_word(word))
+                        writer.write(' ')
+            
+
     
 def encode_file_2(input_file, output_file):
     """Method for converting a file containing English text to Pig Latin.
