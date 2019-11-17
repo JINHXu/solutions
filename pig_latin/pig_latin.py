@@ -84,22 +84,21 @@ def encode_file_1(input_file, output_file):
     Returns:
         None
     """
+    output_str = ''
+    with open(input_file, 'r', encoding = 'utf8') as reader:
+        for line in reader.readlines():
+            #handling empty lines
+            if line.isspace():
+                output_str += '\n' + line
+            else: 
+                words = line.split()
+                for word in words:
+                    output_str += encode_word(word) + ' '
+        
     with open(output_file, 'w', encoding = 'utf8') as writer:
-        with open(input_file, 'r', encoding = 'utf8') as reader:
-            for line in reader.readlines():
-                #handling the blank lines
-                if line.isspace():
-                    writer.write('\n')
-                    writer.write(line)
-                    
-                else:
-                    words = line.split()
-                    for word in words:
-                        writer.write(encode_word(word))
-                        writer.write(' ')
-            
+        writer.write(output_str)
 
-    
+            
 def encode_file_2(input_file, output_file):
     """Method for converting a file containing English text to Pig Latin.
     Appends each newly converted word to a list containing the already converted words, then writes the fullly converted text to file using ''.join([word_list]).
@@ -114,5 +113,43 @@ def encode_file_2(input_file, output_file):
     Returns:
         None
     """
-    # FIXME your code goes here
+    str_list = list()
+    with open(input_file, 'r', encoding = 'utf8') as reader:
+        for line in reader.readlines():
+            #handling empty lines
+            if line.isspace():
+                str_list.append('\n' + line)
+            else: 
+                words = line.split()
+                for word in words:
+                    str_list.append(encode_word(word) + ' ')
+    
+    output_str = ''.join(str_list)
+        
+    with open(output_file, 'w', encoding = 'utf8') as writer:
+        writer.write(output_str)
+    
+def main():
+    with open('/Users/xujinghua/a1-JINHXu/pig_latin/data/2701-0-ch1-pl-result-1.txt', 'r', encoding = 'utf8') as f1:
+        with open('/Users/xujinghua/a1-JINHXu/pig_latin/data/2701-0-ch1-pl.txt', 'r', encoding = 'utf8') as f2:
+            lines1 = f1.readlines()
+            lines2 = f2.readlines()
+
+            for line_num in range(len(lines1)):
+                print(line_num)
+                if lines1[line_num] == lines2[line_num]:
+                    print('okay')
+                else:
+                    print('whoops')
+                    eline1 = lines1[line_num]
+                    eline2 = lines2[line_num]
+                    e1 = eline1.split()
+                    e2 = eline2.split()
+                    for i in range(len(e1)):
+                        if e1[i] != e2[i]:
+                            print(e1[i])
+                            print(e2[i])
+if __name__== "__main__":
+    main()
+
                     
