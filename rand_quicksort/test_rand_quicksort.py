@@ -23,3 +23,4 @@ class TestRandQuickSort(unittest.TestCase):
         randomized_inplace_quick_sort(random_seq, 0, len(random_seq)-1)
 
         self.assertEqual(sorted_seq, random_seq)
+
