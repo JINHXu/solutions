@@ -60,15 +60,17 @@ def my_pow(x, y):
        x to the power of y, i.e. x**y
     """
     x_y = 0
-    tmp = 0
+    #base case
     if y == 0:
         return 1
+    #recursive call
     tmp = my_pow(x, int(y/2))
+    #base cases
     if y % 2 == 0:
         x_y = tmp * tmp
     else:
         x_y = x*tmp*tmp
-        
+
     return x_y
 
 def polynomial_two(x, n, coefficient_list):
