@@ -1,6 +1,6 @@
 """ Data Structures and Algorithms for CL III, WS 2019-2020, Assignment 1
    
-    Problem 4: Randomized In-place Quick-Sort.
+   Problem 4: Randomized In-place Quick-Sort.
    Course:      Data Structures and Algorithms for CL III - WS1920
    Assignment:  lab 1, exercise 4
    Author:      Jinghua Xu

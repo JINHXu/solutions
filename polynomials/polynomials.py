@@ -34,6 +34,7 @@ def polynomial_one(x, n, coefficient_list):
 
         x_i = 1
     #innner-loop calculating x to the power of i, will execute n+(n-1)+...+1 = n*(n+1)/2 times, thus the complexity of this will be O(n^2)
+    # I am using this loop since I am currently uncertain about the runtime complexity of ** or built-in pow()
         for i in range(n):
 
             x_i = x_i * x
@@ -42,6 +43,33 @@ def polynomial_one(x, n, coefficient_list):
         n = n-1
 
     return p_x
+
+def my_pow(x, y):
+    """O(logN) method for computing x to th epower of y.
+       
+       Prameters
+       ---------
+       x: number
+       Base.
+       y: int
+       Exponent.
+
+       Returns
+       -------
+       x_y: number
+       x to the power of y, i.e. x**y
+    """
+    x_y = 0
+    tmp = 0
+    if y == 0:
+        return 1
+    tmp = my_pow(x, int(y/2))
+    if y % 2 == 0:
+        x_y = tmp * tmp
+    else:
+        x_y = x*tmp*tmp
+        
+    return x_y
 
 def polynomial_two(x, n, coefficient_list):
     """O(n log n) method for computing p(x), using power_two(x, n) to compute the n-th power of x in O(log n) time.
@@ -66,9 +94,7 @@ def polynomial_two(x, n, coefficient_list):
     for coe in coefficient_list:
 
         x_i = 1
-        # can I add another function pwo here?
-        #allowed? complexity of pow() is O(logN)
-        x_i = pow(x, n)
+        x_i = my_pow(x, n)
         p_x = p_x + coe * x_i
         n = n-1
 

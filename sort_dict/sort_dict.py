@@ -2,7 +2,14 @@
    
     Problem 5: String sorting.
 
-    <Please insert your data and the honor code here.>
+   Course:      Data Structures and Algorithms for CL III - WS1920
+   Assignment:  lab 1, exercise 5
+   Author:      Jinghua Xu
+   Description: Given a list of n strings of different lengths, 
+   implement an algorithm to sort them in lexicographic order in O(d(n+N)) time, 
+   where d is the maximum number of characters over all the n strings and N is the length of the letter alphabet over the n strings.
+ 
+ Honor Code:  I pledge that this program represents my own work.
 
     <Your analysis should go here.>
 """
@@ -23,6 +30,8 @@ def string_sort(word_list):
 
     sorted_word_list = []
 
-    # FIXME your code goes here
+    # building a trie from the list of strings
+
+    # traversing it pre-order
 
     return sorted_word_list
