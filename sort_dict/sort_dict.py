@@ -57,6 +57,9 @@ def string_sort(word_list):
         new_word_list = bucket_sort(new_word_list, idx, dict_ab)
 
     sorted_word_list = new_word_list
+    #getting rid of the placeholders before return?
+    for word in new_word_list:
+        sorted_word_list.append(word.replace('.',''))
 
     return sorted_word_list
 
