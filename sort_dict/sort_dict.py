@@ -9,11 +9,54 @@
    where d is the maximum number of characters over all the n strings and N is the length of the letter alphabet over the n strings.
  
  Honor Code:  I pledge that this program represents my own work.
-    <Your analysis should go here.>
-"""
+
+    Analysis:
+
+    By extending the function in test, the output obtained from terminal is:
+
+    Timing  10  loops of string_sort:  40.888141149999996
+
+    Timing  10  loops of string_sort:  10.948107701000005
+
+
+    runtime 40.888141149999996 is the runtime of radix sort which has the complexity of O(d*(n+N))
+    runtime 10.948107701000005 is the runtime of randomized inplace quicksort which has the worst case runtime complexity of O(n^2), while in practice it has an average case runtime complexity of O(nlogn), when pivot is chosen properly as in our implementation here, randomized median-of-three pivot
+
+    quick sort has the property: in-place, randomized, fastest, good for large inputs, and here in this case, we have a large input, therefore, quick sort performs good and has a short runtime(10.948107701000005).
+    (The best case for quick-sort is when subsequences L and G have roughly the same size. By introducing randomization in the choice of the pivot, quick- sort can have an expected running time of "(nlogn))
+
+    Analysis of string_sort(implemented as radix sort here) in detail:
+
+    Radix sort(string_sort) has a longer rntime here, in the implementation:
+    (d is the maximum number of characters over all the n strings and N is the length of the letter alphabet over the n strings.)
+    determine d: O(n) 
+    pre-processing on strings: O(n)
+    dictionary building: O(N + 1) (length of alphabet plus one, which is the place holder), in this implementation, the alphabet is taken as the full alphabet of English chars in samll case, i.e N = 26
+    d times of iteration: in each iteration, bucket sort will be called -> bucket sort being called d times
+    bucket sort:
+    phase 1: adding sequence elements to bucket array -> O(n)
+    phase 2: puting back the sorted entries into sequence -> O(n+N)
+    -> bucket sort run in O(n + N) time
+
+    bucket sort will be called d times -> O(d *(n+N))
+
+    post-process on the sorted list(getting rid of the placeholders) -> O(n)
+
+    igonoring the low order items and constant factors => totoal runtime of radix sort(string_sort) here is O(d*(n+N))
+
+
+
+    Analysis of randomized quicksort(randomized_inplace_quick_sort):
+
+    Quick-sort is a sorting algorithm based on the divide-and-conquer paradigm, consists of 3 steps: divide(L,E(pivot),G), recur(sort L and G), conquer(join L, E, G)
+    in this case of randomized inplace quick sort, pivot here is chosen by median-of-three, where the median-of-three is appraximately the meidan of the whole word list, so in our implementation,
+    the runtime complexity is supposed to be O(nlogn), which is the average case.
+    
+
+    """
 
 def string_sort(word_list):
-    """Sorts a list of words lexicographically in O(d(n+N)) time.
+    """Sorts a list of words lexicographically in O(d*(n+N)) time.
     Parameters
     ----------
     word_list : list
