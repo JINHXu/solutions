@@ -34,16 +34,14 @@ def find_largest(seq, k=10):
         sequence size is n, top k largest elements(k is not taken as a constant)
 
         function def 2 ops => constant O(1)
-        call function copy() (complexity of copy() is O(n)) and assign it to seq => O(n) 
-        creating an empty list 1 op => constant O(1)
-        for loop will be executed k times k ops => constant O(1)
-        invoke max() and assignment k+n+(n-1)+(n-2)+...+(n-k+1) => k+((n+(n-k+1))*k/2) ops => O(n*k)
-        remove() n+(n-1)+(n-2)+...+(n-k+1) => (n+(n-k+1))*k/2 ops => O(n*k)
-        append() to a list k ops => constnat O(k)
+        call function copy() (complexity of copy() is O(n)) and assign it to seq: n+1 ops => O(n) 
+        for loop will be executed k times k ops => constant O(k)
+        (complexity of max() is O(n))invoke max() k times and assignment (n+(n-1)+(n-2)+...+(n-k+1))+k => k+((n+(n-k+1))*k/2) => (2*n*k-k*k+3*k)/2 ops => O(k*(n-k))
+        (complexity of remove() is 0(n))invoke remove() k times n+(n-1)+(n-2)+...+(n-k+1) => (n+(n-k+1))*k/2 ops => (2*n*k-k*k+k)/2 => O(k*(n-k))
+        (complexity of append() is constant 0(1))invoke append() k times: k ops => O(k)
         return 1 op => constat O(1)
 
-
-        add them up together (igonoring lower-order items and constant factors) get the runtime=> 0(n*k)
+        add them up together (igonoring lower-order items and constant factors) get the runtime=> 0(k*(n-k))
 
     """     
 
@@ -52,7 +50,7 @@ def find_largest(seq, k=10):
     seq = seq.copy()
 
     #find, store and remove the max k times
-    for i in range(0, k):
+    for _ in range(0, k):
         maxi = max(seq)
         seq.remove(maxi)
         largest_k.append(maxi)
