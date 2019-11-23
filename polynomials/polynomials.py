@@ -33,9 +33,10 @@ def polynomial_one(x, n, coefficient_list):
     for coe in coefficient_list:
 
         x_i = 1
-    #innner-loop calculating x to the power of i, will execute n+(n-1)+...+1 = n*(n+1)/2 times, thus the complexity of this will be O(n^2)
-    # I am using this loop since I am currently uncertain about the runtime complexity of ** or built-in pow()
-        for i in range(n):
+        # innner-loop calculating x to the power of i, will execute n+(n-1)+...+1 = n*(n+1)/2 times, thus the complexity of this will be O(n^2)
+        # inner for-loop instead of using **, since I talked to Corina, she said this is more about knowing how it actually works, so the inner for-loop is okay here
+        # alternative solution replace inner for-loop: x_i = x ** n
+        for _ in range(n):
 
             x_i = x_i * x
         
@@ -121,6 +122,24 @@ def polynomial_three(x, n, coefficient_list):
         
 
         Complexity analysis:(by following the style on slides)
+        step one: a
+        accessing in list: 1 op
+        arithmetic adding operation: 1 op
+        accessing in list: 1 op
+        arithmitic multiplication: 1 op
+        assignment: 1 op
+
+        => step1: constant runtime complexity O(1)
+
+        step 2: O(n)
+
+        step 3: for-loop: going through the coe list of n elements: O(n)
+
+        step 4: in each for-loop p_x = x*p_x + coe has constant runtime
+
+        step 3+4 => O(n)
+
+        step 5: return: 1 op constant runtime => O(1)
 
     """
     #"base case": inner-most item (an-1 + x*an)
