@@ -122,7 +122,8 @@ def polynomial_three(x, n, coefficient_list):
         
 
         Complexity analysis:(by following the style on slides)
-        step one: a
+
+        step 1: a
         accessing in list: 1 op
         arithmetic adding operation: 1 op
         accessing in list: 1 op
@@ -140,6 +141,8 @@ def polynomial_three(x, n, coefficient_list):
         step 3+4 => O(n)
 
         step 5: return: 1 op constant runtime => O(1)
+
+        ignoring lower order items and constant factors: Horner's method has a linear runtime complexity O(n)
 
     """
     #"base case": inner-most item (an-1 + x*an)
