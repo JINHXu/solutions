@@ -79,6 +79,7 @@ class TestPigLatinEncoder(unittest.TestCase):
         self.assertEqual(result, correct_encoding)
 
     def test_encode_file_1(self):
+
         md_ch1 = "pig_latin/data/2701-0-ch1.txt"
         pl_md_ch1 = "pig_latin/data/2701-0-ch1-pl.txt"
         result1_md_ch1 = "pig_latin/data/2701-0-ch1-pl-result-1.txt"
@@ -88,6 +89,7 @@ class TestPigLatinEncoder(unittest.TestCase):
         self.assertEqual(filecmp.cmp(result1_md_ch1, pl_md_ch1), True)
 
     def test_encode_file_2(self):
+        
         md_ch1 = "pig_latin/data/2701-0-ch1.txt"
         pl_md_ch1 = "pig_latin/data/2701-0-ch1-pl.txt"
         result2_md_ch1 = "pig_latin/data/2701-0-ch1-pl-result-2.txt"
@@ -114,3 +116,4 @@ result2_md_ch1 = "pig_latin/data/2701-0-result-2-speed.txt"
 """
         time2 = timeit.timeit("encode_file_2(md_ch1, result2_md_ch1)", setup2, number=loops)
         print("\nTiming ", loops, " loops of encode_file_2: ", time2)
+        
