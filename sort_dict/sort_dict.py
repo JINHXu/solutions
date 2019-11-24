@@ -80,7 +80,10 @@ def string_sort(word_list):
         diff = d - len(word)
         if diff > 0:
             #appending processed word(word + right number of placeholders) to new_word_list(list of processed words)
-            new_word_list.append(word.lower() + diff * '.')
+            # bref version: new_word_list.append(word.lower() + diff * '.')
+            # for better readability:
+            new_word = word.lower() + diff * '.'
+            new_word_list.append(new_word)     
         else:
             new_word_list.append(word.lower())
     #creating alphabet: currently considered the full alphabet of English chars
