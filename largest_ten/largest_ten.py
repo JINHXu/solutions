@@ -31,6 +31,8 @@ def find_largest(seq, k=10):
 
     Complexity analysis:(by following the style on slides)
 
+        (Analysis start from after the argument check)
+
         sequence size is n, top k largest elements(k is not taken as a constant)
 
         function def 2 ops => constant O(1)
@@ -43,7 +45,12 @@ def find_largest(seq, k=10):
 
         add them up together (igonoring lower-order items and constant factors) get the runtime=> 0(k*(n-k))
 
-    """     
+    """  
+    
+    # argument check
+    if k > len(seq):
+        print("Invalid argument: k is bigger than the length of sequence.")
+        return
 
     largest_k = []
     #remove from this copied seq, so the original seq will not be changed
@@ -55,3 +62,4 @@ def find_largest(seq, k=10):
         seq.remove(maxi)
         largest_k.append(maxi)
     return largest_k
+
