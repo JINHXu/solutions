@@ -25,8 +25,6 @@ def encode_word(word):
         The word encoded in Pig Latin.
     """
 
-    #recent hints: strip off all the puncts first?
-
     #argument check: empty string argument
     if word == '':
         return word

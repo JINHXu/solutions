@@ -24,8 +24,10 @@ def randomized_inplace_quick_sort(S, a, b):
     Returns
         None 
     """ 
-    #argument check
+    # range is trivially sorted
     if a >= b: return
+    # argument check: in case of index out of range
+    if b > len(S)-1: return
 
     #index of the element at median position in this sequence
     mid = (a+b)//2
@@ -84,9 +86,3 @@ def randomized_inplace_quick_sort(S, a, b):
         
 
         
-
-
-
-
-
-

@@ -157,3 +157,4 @@ def polynomial_three(x, n, coefficient_list):
 
     return p_x
 
+
