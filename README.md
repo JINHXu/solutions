@@ -1,4 +1,4 @@
-# Solving problems
+# Implementations/Solutions
 
 ## 1. Largest ten
 An effecient implementation of finding the largest 10 elements in a sequence.
